@@ -11,7 +11,7 @@ void matrix_mul(vector< vector<T> > a, vector< vector<T> > b, vector< vector<T> 
                 for (int k = 0; k < r; ++k)
                     c[i][j] += a[i][k] * b[k][j];
     }
-    catch(range_error c){
-        throw "Dimension cannot be zero!";
+    catch(...){
+        cout << "Dimension cannot be zero!" << "nl";
     }
 }

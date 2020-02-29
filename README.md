@@ -2,6 +2,12 @@
 
 # REPO: Source code for matrix multiplication and transposition in C++
 
+## Directory structure
+- main.cpp -
+    A driver function which imports header file to perform matrix operations.
+- mat.hpp -
+    Header file with source code for matrix multiplication and transpose.
+
 ## Installation
 - Make sure you have a C++ compiler 
 - Above source code is tested on 
@@ -18,7 +24,7 @@ libltlnd-34864`
 - ./a.out (execute)
 
 ## Usage and Output
-
+- Make Sure to import header file in your code `#include "mat.hpp" `
 - Matrix Multiplication
 
         Matrix a (2*2) = 1 2 1 2

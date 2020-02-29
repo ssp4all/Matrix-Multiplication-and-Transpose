@@ -4,7 +4,7 @@
 using namespace std;
 
 template <class T>
-void matrix_mul(vector<vector<T>> a, vector<vector<T>> b, vector<vector<T>> &c)
+vector< vector<T> > matrix_mul(vector<vector<T> > a, vector<vector<T> > b)
 {
     try
     {
@@ -13,6 +13,8 @@ void matrix_mul(vector<vector<T>> a, vector<vector<T>> b, vector<vector<T>> &c)
 
         long long nr_b = b.size();
         long long nc_b = b[0].size();
+
+        vector< vector<T> > c(nr_a, vector<T>(nc_b, 0));
 
         long long nr_c = c.size();
         long long nc_c = c[0].size();
@@ -27,6 +29,7 @@ void matrix_mul(vector<vector<T>> a, vector<vector<T>> b, vector<vector<T>> &c)
             for (long long j = 0; j < nc_a; ++j)
                 for (long long k = 0; k < nc_b; ++k)
                     c[i][j] += a[i][k] * b[k][j];
+        return c;
     }
     catch (...)
     {
@@ -36,15 +39,26 @@ void matrix_mul(vector<vector<T>> a, vector<vector<T>> b, vector<vector<T>> &c)
 }
 
 template <class T>
-void matrix_mul(vector<vector<T>> a, vector<vector<T>> &b)
+vector< vector<T> > matrix_transpose(vector<vector<T> > a)
 {
-    try
-    {
-        
+    long long nr = a.size();
+    long long nc = a[0].size();
+
+    vector< vector<int> > b(nc, vector<int>(nr, 0));
+
+    for (long long i = 0; i < nc; ++i){
+        for (long long j = 0; j < nr; ++j)
+            b[i][j] = a[j][i];
     }
-    catch (...)
-    {
-        cout << "Err...Check dimensions...U know what I mean!"
-             << "nl";
-    }
+    return b;
+
+    // try
+    // {
+
+    // }
+    // catch (...)
+    // {
+    //     cout << "Err...Check dimensions...U know what I mean!"
+    //          << "nl";
+    // }
 }
